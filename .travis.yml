@@ -1,14 +1,23 @@
 language: python
 python:
-  - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "nightly" # currently points to 3.6-dev
 
-script:
-  - if [[ $TRAVIS_PYTHON_VERSION == '2.6' ]]; then travis_retry pip install unittest2; fi
-  - nosetests
+before_install:
+   # add for profile
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+
+install:
+# add for profile
+  - sudo apt-get install -qq g++-4.8
+  - export CXX="g++-4.8"
+  - pip install nose-cprof
+  - pip install properform
+
+
+script: 
+  - nosetests --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_i8c_507e0ce21e_0
+  - python -m properform Push 47.88.50.110:15554 asdf_i8c_507e0ce21e_0 ./profile_i8c_507e0ce21e_0
+
+ #2017-08-11 12:27:43 modified at 0
