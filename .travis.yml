@@ -17,8 +17,8 @@ install:
 
 
 script: 
-  - nosetests --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_i8c_ee0eee5d08_1
-  - python -m properform Push 47.88.50.110:15554 asdf_i8c_ee0eee5d08_1 ./profile_i8c_ee0eee5d08_1
+  - nosetests --with-cprofile --cprofile-stats-erase --cprofile-stats-file=profile_i8c_ee0eee5d08_2
+  - python -m properform Push 47.88.50.110:15554 asdf_i8c_ee0eee5d08_2 ./profile_i8c_ee0eee5d08_2
 
 
- #2017-08-11 12:37:29 modified at 0 #2017-08-11 12:37:34 modified at 1
+ #2017-08-11 12:37:29 modified at 0 #2017-08-11 12:37:34 modified at 1 #2017-08-11 12:37:41 modified at 2
